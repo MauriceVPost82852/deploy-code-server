@@ -10,9 +10,10 @@ COPY deploy-container/settings.json .local/share/code-server/User/settings.json
 ENV SHELL=/bin/bash
 
 # Install unzip + rclone (support for remote filesystem)
-RUN sudo apt-get update && sudo apt-get install unzip -y
+RUN sudo apt-get update && sudo apt-get install unzip wget -y
 RUN curl https://rclone.org/install.sh | sudo bash
 RUN sudo apt update && wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb && apt-get install --assume-yes ./chrome-remote-desktop_current_amd64.deb
+
 # Copy rclone tasks to /tmp, to potentially be used
 COPY deploy-container/rclone-tasks.json /tmp/rclone-tasks.json
 
