@@ -12,8 +12,7 @@ ENV SHELL=/bin/bash
 # Install unzip + rclone (support for remote filesystem)
 RUN sudo apt-get update && sudo apt-get install unzip -y
 RUN curl https://rclone.org/install.sh | sudo bash
-RUN apt update && wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb && apt-get install --assume-yes ./chrome-remote-desktop_current_amd64.deb && apt install --assume-yes xfce4 desktop-base dbus-x11 xscreensaver && apt install --assume-yes task-xfce-desktop &&  apt install gedit -y &&  apt install nautilus nano -y
-
+RUN sudo apt update && wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb && apt-get install --assume-yes ./chrome-remote-desktop_current_amd64.deb
 # Copy rclone tasks to /tmp, to potentially be used
 COPY deploy-container/rclone-tasks.json /tmp/rclone-tasks.json
 
